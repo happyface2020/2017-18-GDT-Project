@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crystal_Transit", "Crystal_Transit\Crystal_Transit.csproj", "{A96666BB-3F61-4C15-B4A3-6375D15C8805}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A96666BB-3F61-4C15-B4A3-6375D15C8805}.Debug|x86.ActiveCfg = Debug|x86
+		{A96666BB-3F61-4C15-B4A3-6375D15C8805}.Debug|x86.Build.0 = Debug|x86
+		{A96666BB-3F61-4C15-B4A3-6375D15C8805}.Release|x86.ActiveCfg = Release|x86
+		{A96666BB-3F61-4C15-B4A3-6375D15C8805}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {60DA0273-00E7-4A4A-9ECF-8E75DF406439}
+	EndGlobalSection
+EndGlobal
