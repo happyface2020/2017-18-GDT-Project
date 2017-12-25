@@ -9,13 +9,13 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Crystal_Transit
 {
-    static class TileSet
+    static class TileSet //By: Sean
     {
         static public Texture2D TileSetTexture;
-        static public int TilesetScale = 16; //tileset, pixel by one tile
-
+        static public int TilesetScale = 16; //tileset, set pixel by one tile; FIX LATER
+       
         static public Rectangle GetSourceRectangle(int tileIndex)
-        {
+        { 
             int tileY = tileIndex / (TileSetTexture.Width / TilesetScale);
             int tileX = tileIndex % (TileSetTexture.Width / TilesetScale);
 
