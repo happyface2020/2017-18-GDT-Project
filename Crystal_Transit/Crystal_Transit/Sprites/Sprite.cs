@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Crystal_Transit //BE CAREFUL ADDING A NEW CLASS TO THE FOULDER; THE NAMESPACE CHANGES!!!!
 {
-    public class Sprite //default fps is 60
+    public class Sprite //default fps is 60 (by sean)
     {
         public Texture2D texture;
         public Vector2 position;

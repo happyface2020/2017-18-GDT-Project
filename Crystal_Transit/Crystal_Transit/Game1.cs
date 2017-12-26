@@ -11,6 +11,8 @@ namespace Crystal_Transit
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Hero hero = new Hero();
+        private Camera camera= new Camera();
+
         public const int WindowWidth = 960; //64 * 15
         public const int WindowHeight = 640; // 64 * 10
         public const int SquaresDepth = 2;
@@ -43,13 +45,14 @@ namespace Crystal_Transit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
             hero.Update(gameTime);
+            camera.Follow(hero);
             base.Update(gameTime);
         }
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointWrap);
-
+            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointWrap, null, null, null, transformMatrix: camera.Transfrom);
+            
             for (int z = 0; z < SquaresDepth; z++)
             {
                 int layer = z;

@@ -10,12 +10,12 @@ using System.Threading.Tasks;
 namespace Crystal_Transit
 {
     public class Hero : Sprite //class inheritance: https://goo.gl/jShBNA (By. Sean)
-    {
-        
+    { 
         public override void Update(GameTime gameTime) //overides the update to add movement
         {
             KeyboardState keyboardState = Keyboard.GetState();
             UserInput(keyboardState);
+            position = new Vector2(200, 20);
             position = velocity * (float)gameTime.ElapsedGameTime.TotalMilliseconds;
         }
 
