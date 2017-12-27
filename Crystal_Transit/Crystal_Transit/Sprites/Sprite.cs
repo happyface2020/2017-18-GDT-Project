@@ -12,8 +12,7 @@ namespace Crystal_Transit //BE CAREFUL ADDING A NEW CLASS TO THE FOULDER; THE NA
     {
         public Texture2D texture;
         public Vector2 position;
-        public Vector2 velocity;
-        public const float speed = .16f; //can change speed; set speed 
+        public const float speed = 2f; //can change speed; set speed 
 
         public virtual void Update(GameTime gameTime) //virtual can be overridden by any inherted class
         {

@@ -36,6 +36,7 @@ namespace Crystal_Transit
             spriteBatch = new SpriteBatch(GraphicsDevice);
             TileSet.TileSetTexture = Content.Load<Texture2D>("TileSet"); // loading tileset
             hero.texture = Content.Load<Texture2D>("Hero"); //change later
+            hero.position = new Vector2(64 * 7, 64 * 4.5f);
         }
         protected override void UnloadContent()
         {
