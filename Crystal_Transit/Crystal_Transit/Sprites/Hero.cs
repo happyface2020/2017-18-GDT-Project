@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Crystal_Transit
 {
-    public class Hero : Sprite //class inheritance: https://goo.gl/jShBNA (By. Sean)
+    public class Hero : Sprite //class inheritance: https://goo.gl/jShBNA
     {
         public override void Update(GameTime gameTime) //overides the update to add movement
         {

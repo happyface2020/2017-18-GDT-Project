@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Crystal_Transit //BE CAREFUL ADDING A NEW CLASS TO THE FOULDER; THE NAMESPACE CHANGES!!!!
 {
-    public class Sprite //default fps is 60 (by sean)
+    public class Sprite //default fps is 60
     {
         public Texture2D texture;
         public Vector2 position;
@@ -21,7 +21,7 @@ namespace Crystal_Transit //BE CAREFUL ADDING A NEW CLASS TO THE FOULDER; THE NA
 
         public virtual void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, position, null, Color.White, 0f, Vector2.Zero, 4, SpriteEffects.None, 0f); //CHANGES THE SCALE OF THE HERO
+            spriteBatch.Draw(texture, position, null, Color.White, 0f, Vector2.Zero, 3, SpriteEffects.None, 0f); //CHANGES THE SCALE OF THE HERO
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Crystal_Transit
 {
-    public class Camera // by: sean https://goo.gl/bYojjD
+    public class Camera // https://goo.gl/bYojjD
     {
         public Matrix Transfrom { get; private set; }
 
@@ -19,8 +19,8 @@ namespace Crystal_Transit
                 0);
 
             var offset = Matrix.CreateTranslation( // postion of hero on screen
-                (Game1.WindowWidth / 2) - (target.texture.Width / 2 ),
-                (Game1.WindowHeight / 2) - (target.texture.Height / 2),
+                (Game1.WindowWidth / 2) - (target.texture.Width),
+                (Game1.WindowHeight / 2) - (target.texture.Height),
                 0);
 
             Transfrom = position * offset;

@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Crystal_Transit
 {
-    static class TileSet //By: Sean
+    static class TileSet
     {
         static public Texture2D TileSetTexture;
         static public int TilesetScale = 16; //tileset, set pixel by one tile; FIX LATER

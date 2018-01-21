@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Input;
 using System.IO;
 
@@ -11,14 +12,15 @@ namespace Crystal_Transit
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Hero hero = new Hero();
+        
         private Camera camera= new Camera();
-
         public const int WindowWidth = 960; //64 * 15
         public const int WindowHeight = 640; // 64 * 10
         public const int SquaresDepth = 2;
         public const int SquareWidth = 15;
         public const int SquaresHeight = 10;
-        public const int Scale = 64;
+        public const int Scale = 48;
+        public static int map = 0;
         #endregion
         public Game1()
         {
@@ -40,6 +42,7 @@ namespace Crystal_Transit
         }
         protected override void UnloadContent()
         {
+            
         }  
         protected override void Update(GameTime gameTime)
         {
@@ -47,6 +50,13 @@ namespace Crystal_Transit
                 Exit();
             hero.Update(gameTime);
             camera.Follow(hero);
+            if (hero.position.X < 0) //basic unloading
+            {
+                UnloadContent();
+                map = 1;
+                LoadContent();
+            }
+
             base.Update(gameTime);
         }
         protected override void Draw(GameTime gameTime)
@@ -67,7 +77,7 @@ namespace Crystal_Transit
                         spriteBatch.Draw(
                             TileSet.TileSetTexture,
                             new Rectangle((x * Scale), (y * Scale), Scale, Scale),
-                            TileSet.GetSourceRectangle(MapLoad.Maps(0,layer, row, column)), //need to make variable fro map
+                            TileSet.GetSourceRectangle(MapLoad.Maps(map,layer, row, column)), //need to make variable fro map
                             Color.White,
                             0f,
                             Vector2.Zero,
