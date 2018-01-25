@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>Windows</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/nuked_000/source/repos/Game3/Game3/Content/MainMenu.png</File>
+    <File>C:/Users/nuked_000/source/repos/Game3/Game3/Content/ScapeGoat.png</File>
+    <File>C:/Users/nuked_000/source/repos/Game3/Game3/Content/Start.png</File>
+  </SourceFiles>
+</SourceFileCollection>
