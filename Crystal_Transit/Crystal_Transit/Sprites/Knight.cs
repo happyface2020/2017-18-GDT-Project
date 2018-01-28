@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Crystal_Transit
 {
-    class Knight : Sprite //melee
+    class Knight //melee
     {
     }
 }

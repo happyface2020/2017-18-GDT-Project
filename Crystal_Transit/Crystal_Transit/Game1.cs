@@ -12,8 +12,8 @@ namespace Crystal_Transit
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Hero hero = new Hero();
-        
         private Camera camera= new Camera();
+
         public const int WindowWidth = 960; //64 * 15
         public const int WindowHeight = 640; // 64 * 10
         public const int SquaresDepth = 2;
@@ -28,17 +28,19 @@ namespace Crystal_Transit
             Content.RootDirectory = "Content";
             graphics.PreferredBackBufferWidth = WindowWidth; //set size of window
             graphics.PreferredBackBufferHeight = WindowHeight;
+            IsMouseVisible = true;
+            
         }
         protected override void Initialize()
-        {
+        { 
+            hero.position = new Vector2(64 * 7, 64 * 4.5f);
             base.Initialize();
         }
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
             TileSet.TileSetTexture = Content.Load<Texture2D>("TileSet"); // loading tileset
-            hero.texture = Content.Load<Texture2D>("Hero"); //change later
-            hero.position = new Vector2(64 * 7, 64 * 4.5f);
+            hero.texture = Content.Load<Texture2D>("Hero"); //change later     
         }
         protected override void UnloadContent()
         {
@@ -54,6 +56,7 @@ namespace Crystal_Transit
             {
                 UnloadContent();
                 map = 1;
+                hero.position.X = 64 * 74;
                 LoadContent();
             }
 
@@ -63,7 +66,7 @@ namespace Crystal_Transit
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointWrap, null, null, null, transformMatrix: camera.Transfrom);
-            
+
             for (int z = 0; z < SquaresDepth; z++)
             {
                 int layer = z;
@@ -77,7 +80,7 @@ namespace Crystal_Transit
                         spriteBatch.Draw(
                             TileSet.TileSetTexture,
                             new Rectangle((x * Scale), (y * Scale), Scale, Scale),
-                            TileSet.GetSourceRectangle(MapLoad.Maps(map,layer, row, column)), //need to make variable fro map
+                            TileSet.GetSourceRectangle(MapLoad.Maps(map, layer, row, column)), //need to make variable fro map
                             Color.White,
                             0f,
                             Vector2.Zero,
