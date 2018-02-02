@@ -12,6 +12,7 @@ namespace Crystal_Transit
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Hero hero = new Hero();
+        Archer archer;
         private Camera camera= new Camera();
 
         public const int WindowWidth = 960; //64 * 15
@@ -33,14 +34,17 @@ namespace Crystal_Transit
         }
         protected override void Initialize()
         { 
-            hero.position = new Vector2(64 * 7, 64 * 4.5f);
+            hero.position = new Vector2(100, 100);
             base.Initialize();
         }
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
             TileSet.TileSetTexture = Content.Load<Texture2D>("TileSet"); // loading tileset
-            hero.texture = Content.Load<Texture2D>("Hero"); //change later     
+            hero.texture = Content.Load<Texture2D>("Hero"); //change later  
+            archer = new Archer(hero,10f,25f,2f,30f);
+            archer.texture = Content.Load<Texture2D>("Archer");
+            archer.position = new Vector2(20,20);
         }
         protected override void UnloadContent()
         {
@@ -59,6 +63,9 @@ namespace Crystal_Transit
                 hero.position.X = 64 * 74;
                 LoadContent();
             }
+
+            archer.update();
+            archer.targetMovedTo(hero.position);
 
             base.Update(gameTime);
         }
@@ -92,6 +99,7 @@ namespace Crystal_Transit
             }
 
             hero.Draw(spriteBatch);
+            archer.Draw(spriteBatch);
             base.Draw(gameTime);
             spriteBatch.End();
         }

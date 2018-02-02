@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 
 namespace Crystal_Transit
 {
-    class Enemy 
+    class Enemy : Sprite
     {
         public Sprite target;
         private Vector2 lastPositionOfTarget = Vector2.Zero;
 
         public Enemy(Sprite targetEntity)
         {
-            this.target = target;
+            this.target = targetEntity;
         }
 
-        public static const Archer archer = new Archer(Vector2.Zero, 1, 5, 0.25, 8);
+        //public static Archer archer = new Archer(Vector2.Zero, 1, 5, 0.25, 8);
         // This method should be called by the Entity and should be executed every frame
         public virtual void update()
         {
