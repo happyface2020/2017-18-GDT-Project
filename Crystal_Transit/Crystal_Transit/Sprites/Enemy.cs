@@ -19,13 +19,13 @@ namespace Crystal_Transit
 
         //public static Archer archer = new Archer(Vector2.Zero, 1, 5, 0.25, 8);
         // This method should be called by the Entity and should be executed every frame
-        public virtual void update()
+        public override void Update(GameTime gameTime)
         {
             if (target.position != lastPositionOfTarget)
             {
                 targetMovedTo(target.position);
             }
-
+            //position = target.position; follows the hero now
             lastPositionOfTarget = target.position;
         }
 
@@ -33,7 +33,7 @@ namespace Crystal_Transit
         // Should return the target position where the entity wants to go and will move in that direction
         public virtual Vector2 targetMovedTo(Vector2 point)
         {
-            return position; // Default return is the entity's current location
+            return target.position; // Default return is the entity's current location
         }
     }
 }

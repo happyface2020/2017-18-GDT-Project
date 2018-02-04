@@ -33,18 +33,21 @@ namespace Crystal_Transit
             
         }
         protected override void Initialize()
-        { 
+        {
+            TileSet.TileSetTexture = Content.Load<Texture2D>("TileSet"); // loading tileset
+
+            hero.texture = Content.Load<Texture2D>("Hero"); //change later  
             hero.position = new Vector2(100, 100);
+
+            archer = new Archer(hero, 10f, 25f, 2f, 30f);
+            archer.texture = Content.Load<Texture2D>("Archer");
+            archer.position = new Vector2(20, 20);
+
             base.Initialize();
         }
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            TileSet.TileSetTexture = Content.Load<Texture2D>("TileSet"); // loading tileset
-            hero.texture = Content.Load<Texture2D>("Hero"); //change later  
-            archer = new Archer(hero,10f,25f,2f,30f);
-            archer.texture = Content.Load<Texture2D>("Archer");
-            archer.position = new Vector2(20,20);
         }
         protected override void UnloadContent()
         {
@@ -64,7 +67,7 @@ namespace Crystal_Transit
                 LoadContent();
             }
 
-            archer.update();
+            archer.Update(gameTime);
             archer.targetMovedTo(hero.position);
 
             base.Update(gameTime);
@@ -100,6 +103,7 @@ namespace Crystal_Transit
 
             hero.Draw(spriteBatch);
             archer.Draw(spriteBatch);
+
             base.Draw(gameTime);
             spriteBatch.End();
         }

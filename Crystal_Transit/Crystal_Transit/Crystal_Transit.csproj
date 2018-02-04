@@ -50,7 +50,7 @@
     <Compile Include="MapLoad.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sprites\Knight.cs" />
+    <Compile Include="Sprites\Melee.cs" />
     <Compile Include="Sprites\Sprite.cs" />
     <Compile Include="TileSet.cs" />
   </ItemGroup>
