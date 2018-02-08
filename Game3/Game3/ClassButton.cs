@@ -11,54 +11,54 @@ namespace Game3
 {
     class ClassButton
     {
-        Texture2D Rtexture;
-        Vector2 Rposition;
-        Rectangle Rrectangle;
+        Texture2D texture;
+        Vector2 position;
+        Rectangle rectangle;
 
-        Color Rcolour = new Color(100, 255, 100, 255);
+        Color colour = new Color(100, 255, 100, 255);
 
-        public Vector2 Rsize;
+        public Vector2 size;
 
-        public ClassButton(Texture2D RnewTexture, GraphicsDevice Rgraphics)
+        public ClassButton(Texture2D newTexture, GraphicsDevice graphics)
         {
-            Rtexture = RnewTexture;
+            texture = newTexture;
 
             //ScreenW = 1000, ScreenH = 1000
             //ImgW = 100, ImgH = 20
-            Rsize = new Vector2(Rgraphics.Viewport.Width / 8, Rgraphics.Viewport.Height / 30);
+            size = new Vector2(graphics.Viewport.Width / 8, graphics.Viewport.Height / 30);
         }
 
-        bool Rdown;
-        public bool RisClicked;
-        public void Update(MouseState Rmouse)
+        bool down;
+        public bool isClicked;
+        public void Update(MouseState mouse)
         {
-            Rrectangle = new Rectangle((int)Rposition.X, (int)Rposition.Y,
-                (int)Rsize.X, (int)Rsize.Y);
-            Rectangle RmouseRectangle = new Rectangle(Rmouse.X, Rmouse.Y, 1, 1);
+            rectangle = new Rectangle((int)position.X, (int)position.Y,
+                (int)size.X, (int)size.Y);
+            Rectangle mouseRectangle = new Rectangle(mouse.X, mouse.Y, 1, 1);
 
-            if (RmouseRectangle.Intersects(Rrectangle))
+            if (mouseRectangle.Intersects(rectangle))
             {
-                if (Rcolour.A == 255) Rdown = false;
-                if (Rcolour.A == 0) Rdown = true;
-                if (Rdown) Rcolour.A += 3; else Rcolour.A -= 3;
-                if (Rmouse.LeftButton == ButtonState.Pressed) RisClicked = true;
+                if (colour.A == 255) down = false;
+                if (colour.A == 0) down = true;
+                if (down) colour.A += 3; else colour.A -= 3;
+                if (mouse.LeftButton == ButtonState.Pressed) isClicked = true;
 
             }
-            else if (Rcolour.A < 255)
+            else if (colour.A < 255)
             {
-                Rcolour.A += 3;
-                RisClicked = false;
+                colour.A += 3;
+                isClicked = false;
             }
         }
 
-        public void setPosition(Vector2 RnewPosition)
+        public void setPosition(Vector2 newPosition)
         {
-            Rposition = RnewPosition;
+            position = newPosition;
         }
 
-        public void Draw(SpriteBatch RspriteBatch)
+        public void Draw(SpriteBatch spriteBatch)
         {
-            RspriteBatch.Draw(Rtexture, Rrectangle, Rcolour);
+            spriteBatch.Draw(texture, rectangle, colour);
         }
     }
 }

@@ -25,13 +25,6 @@
 /processorParam:TextureFormat=Color
 /build:Archer.png
 
-#begin Font.spritefont
-/importer:FontDescriptionImporter
-/processor:FontDescriptionProcessor
-/processorParam:PremultiplyAlpha=True
-/processorParam:TextureFormat=Compressed
-/build:Font.spritefont
-
 #begin Hero.png
 /importer:TextureImporter
 /processor:TextureProcessor
