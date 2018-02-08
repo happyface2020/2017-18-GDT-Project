@@ -8,7 +8,7 @@ namespace Crystal_Transit         //      transition of crystals
 {                                //       opening the brace
     class Window                //        declaration of window class
     {                          //         opening the brace
-    while(;  ;) {             //          INFINITE L∞P
+    for(;  ;) {               //          INFINITE L∞P
              window += window//           window adder
              }              //            closing the brace
     }                      //             closing the brace
