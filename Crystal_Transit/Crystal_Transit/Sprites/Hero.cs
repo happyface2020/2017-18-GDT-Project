@@ -19,23 +19,67 @@ namespace Crystal_Transit
 
         void UserInput(KeyboardState keyboardState)// moves the hero by key
         {
+            Vector2 new_position;
+
+            new_position = position;
             if (keyboardState.IsKeyDown(Keys.Right))
             {
-                position += new Vector2(speed, 0);
+                new_position += new Vector2(speed, 0);
             }
+            CheckCollision(new_position);
+
+            new_position = position;
             if (keyboardState.IsKeyDown(Keys.Left))
             {
-                position += new Vector2(-speed, 0);
+                new_position += new Vector2(-speed, 0);
             }
+            CheckCollision(new_position);
+
+            new_position = position;
             if (keyboardState.IsKeyDown(Keys.Up))
             {
-                position += new Vector2(0, -speed);
+                new_position += new Vector2(0, -speed);
             }
+            CheckCollision(new_position);
+
+            new_position = position;
             if (keyboardState.IsKeyDown(Keys.Down))
             {
-                position += new Vector2(0, speed);
+                new_position += new Vector2(0, speed);
+            }
+            CheckCollision(new_position);
+        }
+
+        public void CheckCollision(Vector2 new_position)
+        {
+            // check if new position is valid
+            int Scale = 48;
+            int map = 0;
+
+            bool HasCollided = false;
+
+            for (int x = (int)(new_position.X / Scale); x <= (int)((new_position.X + texture.Width * 3) / Scale); x++)
+            {
+                for (int y = (int)(new_position.Y / Scale); y <= (int)((new_position.Y + texture.Height * 3) / Scale); y++)
+                {
+                    int tileNum = MapLoad.Maps(map, 1, y, x);
+
+                    if (tileNum != 0 && tileNum != 4)
+                    {
+                        HasCollided = true;
+                    }
+
+                }
+            }
+
+            if (HasCollided == false)
+            {
+                position = new_position;
             }
         }
+
+
+
     }
 }
 
