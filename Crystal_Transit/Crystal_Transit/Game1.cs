@@ -13,6 +13,7 @@ namespace Crystal_Transit
         SpriteBatch spriteBatch;
         Hero hero = new Hero();
         Archer archer;
+        SpriteFont font;
         private Camera camera= new Camera();
 
         public const int WindowWidth = 960; //64 * 15
@@ -42,6 +43,8 @@ namespace Crystal_Transit
             archer = new Archer(hero, 10f, 25f, 2f, 30f);
             archer.texture = Content.Load<Texture2D>("Archer");
             archer.position = new Vector2(20, 20);
+
+            font = Content.Load<SpriteFont>("Font");
 
             base.Initialize();
         }
@@ -103,6 +106,17 @@ namespace Crystal_Transit
 
             hero.Draw(spriteBatch);
             archer.Draw(spriteBatch);
+
+            int tileNumNW = MapLoad.Maps(map, 1, (int)(hero.position.Y / Scale), (int)(hero.position.X / Scale));
+            int tileNumSW = MapLoad.Maps(map, 1, (int)((hero.position.Y + hero.texture.Height * 3)/Scale), (int)(hero.position.X / Scale));
+            int tileNumNE = MapLoad.Maps(map, 1, (int)(hero.position.Y / Scale), (int)((hero.position.X + hero.texture.Width * 3)/ Scale));
+            int tileNumSE = MapLoad.Maps(map, 1, (int)((hero.position.Y + hero.texture.Height * 3) / Scale), (int)((hero.position.X + hero.texture.Width * 3) / Scale));
+            //((int)(hero.position.X/Scale).ToSting() + "," + ((int)(hero.position.Y / Scale)).ToSting()
+
+            spriteBatch.DrawString(font, tileNumNW.ToString(), hero.position, Color.Black);
+            spriteBatch.DrawString(font, tileNumNW.ToString(), new Vector2 (hero.position.X, hero.position.Y + hero.texture.Height * 3), Color.Black);
+            spriteBatch.DrawString(font, tileNumNW.ToString(), new Vector2(hero.position.X + hero.texture.Height * 3, hero.position.Y ), Color.Black);
+            spriteBatch.DrawString(font, tileNumNW.ToString(), new Vector2(hero.position.X + hero.texture.Height * 3, hero.position.Y + hero.texture.Height * 3), Color.Black);
 
             base.Draw(gameTime);
             spriteBatch.End();

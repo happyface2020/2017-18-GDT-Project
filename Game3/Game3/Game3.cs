@@ -9,8 +9,8 @@ namespace Game3
     /// </summary>
     public class Game3 : Game
     {
-        GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+        GraphicsDeviceManager Rgraphics;
+        SpriteBatch RspriteBatch;
 
         enum GameState
         {
@@ -20,13 +20,13 @@ namespace Game3
         }
         GameState CurrentGameState = GameState.Game3;
 
-        int screenWidth = 800, screenHeight = 600;
+        int RscreenWidth = 800, RscreenHeight = 600;
 
         ClassButton btnPlay;
 
         public Game3()
         {
-            graphics = new GraphicsDeviceManager(this);
+            Rgraphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
         }
@@ -51,14 +51,14 @@ namespace Game3
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
+            RspriteBatch = new SpriteBatch(GraphicsDevice);
 
-            graphics.PreferredBackBufferWidth = screenWidth;
-            graphics.PreferredBackBufferHeight = screenHeight;
-            graphics.ApplyChanges();
+            Rgraphics.PreferredBackBufferWidth = RscreenWidth;
+            Rgraphics.PreferredBackBufferHeight = RscreenHeight;
+            Rgraphics.ApplyChanges();
 
             IsMouseVisible = true;
-            btnPlay = new ClassButton(Content.Load<Texture2D>("Pics//Start"), graphics.GraphicsDevice);
+            btnPlay = new ClassButton(Content.Load<Texture2D>("Pics//Start"), Rgraphics.GraphicsDevice);
             btnPlay.setPosition(new Vector2(350, 300));
             // TODO: use this.Content to load your game content here
         }
@@ -81,14 +81,14 @@ namespace Game3
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-            MouseState mouse = Mouse.GetState();
+            MouseState Rmouse = Mouse.GetState();
             // TODO: Add your update logic here
 
             switch (CurrentGameState)
             {
                 case GameState.Game3:
-                    if (btnPlay.isClicked == true) CurrentGameState = GameState.Playing;
-                    btnPlay.Update(mouse);
+                    if (btnPlay.RisClicked == true) CurrentGameState = GameState.Playing;
+                    btnPlay.Update(Rmouse);
                     break;
                 case GameState.Playing:
                     break;
@@ -104,19 +104,19 @@ namespace Game3
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            spriteBatch.Begin();
+            RspriteBatch.Begin();
             
             switch (CurrentGameState)
             {
                 case GameState.Game3:
-                    spriteBatch.Draw(Content.Load<Texture2D>("Pics//MainMenu"), new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
-                    btnPlay.Draw(spriteBatch);
+                    RspriteBatch.Draw(Content.Load<Texture2D>("Pics//MainMenu"), new Rectangle(0, 0, RscreenWidth, RscreenHeight), Color.White);
+                    btnPlay.Draw(RspriteBatch);
                     break;
                 case GameState.Playing:
                     break;
             }
             // TODO: Add your drawing code here
-            spriteBatch.End();
+            RspriteBatch.End();
             base.Draw(gameTime);
         }
     }
