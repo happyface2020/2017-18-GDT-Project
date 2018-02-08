@@ -34,10 +34,8 @@ namespace Crystal_Transit
             if (keyboardState.IsKeyDown(Keys.Down))
             {
                 position += new Vector2(0, speed);
-            if (keyboardState.IsKeyDown(Keys.E))
-            {
-                class Window = (inventory);
             }
         }
     }
 }
+
