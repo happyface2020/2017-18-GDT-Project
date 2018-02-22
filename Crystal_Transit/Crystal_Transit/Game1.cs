@@ -14,6 +14,7 @@ namespace Crystal_Transit
             Game1,
             Options,
             Playing,
+            Inventory
         }
 
         GameState CurrentGameState = GameState.Game1;
