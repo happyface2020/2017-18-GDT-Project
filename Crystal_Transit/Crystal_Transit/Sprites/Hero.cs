@@ -48,6 +48,12 @@ namespace Crystal_Transit
                 new_position += new Vector2(0, speed);
             }
             CheckCollision(new_position);
+            
+            if(keyboardState.IsKeyDown(Keys.E))
+            {
+                GameState CurrentGameState = GameState.Inventory;
+            }
+            
         }
 
         public void CheckCollision(Vector2 new_position)
