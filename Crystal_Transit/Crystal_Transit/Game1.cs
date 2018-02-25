@@ -3,31 +3,33 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Input;
 using System.IO;
+using System.Collections.Generic;
 
 namespace Crystal_Transit
 {
     public class Game1 : Game
     {
-
-        enum GameState
+        #region variables
+        public enum GameState
         {
             Game1,
             Options,
             Playing,
             Inventory
         }
+        public static GameState CurrentGameState = GameState.Game1;
 
-        GameState CurrentGameState = GameState.Game1;
-
-        ClassButton btnPlay;
-
-        #region variables
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Hero hero = new Hero();
         Archer archer;
         SpriteFont font;
-        private Camera camera= new Camera();
+        ClassButton btnPlay;
+        Projectile projectile;
+        MouseState oldmouse;
+        KeyboardState oldkey;
+        List<Projectile> numProjectiles;
+        Camera camera= new Camera();
+        Hero hero = new Hero();
 
         public const int WindowWidth = 960; //64 * 15
         public const int WindowHeight = 640; // 64 * 10
@@ -41,7 +43,7 @@ namespace Crystal_Transit
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            
+            IsMouseVisible = true;
         }
         protected override void Initialize()
         {
@@ -55,6 +57,7 @@ namespace Crystal_Transit
 
             font = Content.Load<SpriteFont>("Font");
 
+            
             base.Initialize();
         }
         protected override void LoadContent()
@@ -63,7 +66,9 @@ namespace Crystal_Transit
             graphics.PreferredBackBufferWidth = WindowWidth; //set size of window
             graphics.PreferredBackBufferHeight = WindowHeight;
             graphics.ApplyChanges();
-            IsMouseVisible = true;
+
+            numProjectiles = new List<Projectile>();
+
             btnPlay = new ClassButton(Content.Load<Texture2D>("Start"), graphics.GraphicsDevice);
             btnPlay.setPosition(new Vector2(350, 300));
         }
@@ -76,7 +81,7 @@ namespace Crystal_Transit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
             MouseState mouse = Mouse.GetState();
-
+            KeyboardState keyboardState = Keyboard.GetState();
             switch (CurrentGameState)
             {
                 case GameState.Game1:
@@ -97,7 +102,23 @@ namespace Crystal_Transit
                     archer.Update(gameTime);
                     archer.targetMovedTo(hero.position);
 
-                    
+                    if (mouse.LeftButton == ButtonState.Pressed )
+                    {
+                        projectile = new Projectile(Content.Load<Texture2D>("Bullet"), hero.position);
+                        numProjectiles.Add(projectile);
+                    }
+                    oldmouse = mouse;
+                    foreach (Sprite projectile in numProjectiles)
+                    {
+                        projectile.Update(gameTime);
+                    }
+                    break;
+                case GameState.Inventory:
+                    if(keyboardState.IsKeyDown(Keys.E) && oldkey.IsKeyUp(Keys.E))
+                    {
+                        CurrentGameState = GameState.Playing;
+                    }
+                    oldkey = keyboardState;
                     break;
                 
             }
@@ -106,7 +127,6 @@ namespace Crystal_Transit
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-            
 
             switch (CurrentGameState)
             {
@@ -143,6 +163,10 @@ namespace Crystal_Transit
 
                     hero.Draw(spriteBatch);
                     archer.Draw(spriteBatch);
+                    foreach (Sprite projectile in numProjectiles) //drawing on all projectiles
+                    {
+                        projectile.Draw(spriteBatch);
+                    }
 
                     int tileNumNW = MapLoad.Maps(map, 1, (int)(hero.position.Y / Scale), (int)(hero.position.X / Scale));
                     int tileNumSW = MapLoad.Maps(map, 1, (int)((hero.position.Y + hero.texture.Height * 3) / Scale), (int)(hero.position.X / Scale));
@@ -158,8 +182,11 @@ namespace Crystal_Transit
 
 
                     break;
-                
-                
+                case GameState.Inventory:
+                    spriteBatch.Begin();
+                    break;
+
+
             }
             spriteBatch.End();
             base.Draw(gameTime);

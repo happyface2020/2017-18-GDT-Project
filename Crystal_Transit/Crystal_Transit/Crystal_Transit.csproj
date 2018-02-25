@@ -44,6 +44,7 @@
     <Compile Include="Camera.cs" />
     <Compile Include="ClassButton.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="Projectile.cs" />
     <Compile Include="Sprites\Archer.cs" />
     <Compile Include="Sprites\Enemy.cs" />
     <Compile Include="Sprites\Hero.cs" />

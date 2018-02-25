@@ -20,7 +20,7 @@ namespace Crystal_Transit
         void UserInput(KeyboardState keyboardState)// moves the hero by key
         {
             Vector2 new_position;
-
+            MouseState mouse = Mouse.GetState();
             new_position = position;
             if (keyboardState.IsKeyDown(Keys.Right))
             {
@@ -51,7 +51,11 @@ namespace Crystal_Transit
             
             if(keyboardState.IsKeyDown(Keys.E))
             {
-                GameState CurrentGameState = GameState.Inventory;
+                Game1.CurrentGameState= Game1.GameState.Inventory;
+            }
+            if(mouse.LeftButton == ButtonState.Pressed)
+            {
+                
             }
             
         }

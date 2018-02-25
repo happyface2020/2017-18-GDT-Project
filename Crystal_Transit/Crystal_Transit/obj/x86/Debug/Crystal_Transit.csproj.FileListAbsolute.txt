@@ -25,3 +25,31 @@ C:\Users\nuked_000\Documents\Game Design Club\Game Design Club\2017-18-GDT-Proje
 C:\Users\nuked_000\Documents\Game Design Club\Game Design Club\2017-18-GDT-Project-master\Crystal_Transit\Crystal_Transit\bin\Windows\x86\Debug\SharpDX.XInput.xml
 C:\Users\nuked_000\Documents\Game Design Club\Game Design Club\2017-18-GDT-Project-master\Crystal_Transit\Crystal_Transit\obj\x86\Debug\Crystal_Transit.exe
 C:\Users\nuked_000\Documents\Game Design Club\Game Design Club\2017-18-GDT-Project-master\Crystal_Transit\Crystal_Transit\obj\x86\Debug\Crystal_Transit.pdb
+C:\Sean\Adventures!\2017-18-GDT-Project\Crystal_Transit\Crystal_Transit\obj\x86\Debug\Crystal_Transit.csprojResolveAssemblyReference.cache
+C:\Sean\Adventures!\2017-18-GDT-Project\Crystal_Transit\Crystal_Transit\obj\x86\Debug\Crystal_Transit.csproj.CoreCompileInputs.cache
+C:\Sean\Adventures!\2017-18-GDT-Project\Crystal_Transit\Crystal_Transit\obj\x86\Debug\Crystal_Transit.exe
+C:\Sean\Adventures!\2017-18-GDT-Project\Crystal_Transit\Crystal_Transit\obj\x86\Debug\Crystal_Transit.pdb
+C:\Sean\Adventures!\2017-18-GDT-Project\Crystal_Transit\Crystal_Transit\bin\Windows\x86\Debug\Content\Archer.xnb
+C:\Sean\Adventures!\2017-18-GDT-Project\Crystal_Transit\Crystal_Transit\bin\Windows\x86\Debug\Content\Font.xnb
+C:\Sean\Adventures!\2017-18-GDT-Project\Crystal_Transit\Crystal_Transit\bin\Windows\x86\Debug\Content\Hero.xnb
+C:\Sean\Adventures!\2017-18-GDT-Project\Crystal_Transit\Crystal_Transit\bin\Windows\x86\Debug\Content\MainMenu.xnb
+C:\Sean\Adventures!\2017-18-GDT-Project\Crystal_Transit\Crystal_Transit\bin\Windows\x86\Debug\Content\Melee.xnb
+C:\Sean\Adventures!\2017-18-GDT-Project\Crystal_Transit\Crystal_Transit\bin\Windows\x86\Debug\Content\Start.xnb
+C:\Sean\Adventures!\2017-18-GDT-Project\Crystal_Transit\Crystal_Transit\bin\Windows\x86\Debug\Content\TileSet.xnb
+C:\Sean\Adventures!\2017-18-GDT-Project\Crystal_Transit\Crystal_Transit\bin\Windows\x86\Debug\Crystal_Transit.exe
+C:\Sean\Adventures!\2017-18-GDT-Project\Crystal_Transit\Crystal_Transit\bin\Windows\x86\Debug\Crystal_Transit.pdb
+C:\Sean\Adventures!\2017-18-GDT-Project\Crystal_Transit\Crystal_Transit\bin\Windows\x86\Debug\MonoGame.Framework.dll
+C:\Sean\Adventures!\2017-18-GDT-Project\Crystal_Transit\Crystal_Transit\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+C:\Sean\Adventures!\2017-18-GDT-Project\Crystal_Transit\Crystal_Transit\bin\Windows\x86\Debug\SharpDX.dll
+C:\Sean\Adventures!\2017-18-GDT-Project\Crystal_Transit\Crystal_Transit\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+C:\Sean\Adventures!\2017-18-GDT-Project\Crystal_Transit\Crystal_Transit\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+C:\Sean\Adventures!\2017-18-GDT-Project\Crystal_Transit\Crystal_Transit\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+C:\Sean\Adventures!\2017-18-GDT-Project\Crystal_Transit\Crystal_Transit\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+C:\Sean\Adventures!\2017-18-GDT-Project\Crystal_Transit\Crystal_Transit\bin\Windows\x86\Debug\SharpDX.XInput.dll
+C:\Sean\Adventures!\2017-18-GDT-Project\Crystal_Transit\Crystal_Transit\bin\Windows\x86\Debug\MonoGame.Framework.xml
+C:\Sean\Adventures!\2017-18-GDT-Project\Crystal_Transit\Crystal_Transit\bin\Windows\x86\Debug\SharpDX.xml
+C:\Sean\Adventures!\2017-18-GDT-Project\Crystal_Transit\Crystal_Transit\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+C:\Sean\Adventures!\2017-18-GDT-Project\Crystal_Transit\Crystal_Transit\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+C:\Sean\Adventures!\2017-18-GDT-Project\Crystal_Transit\Crystal_Transit\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+C:\Sean\Adventures!\2017-18-GDT-Project\Crystal_Transit\Crystal_Transit\bin\Windows\x86\Debug\SharpDX.XInput.xml
+C:\Sean\Adventures!\2017-18-GDT-Project\Crystal_Transit\Crystal_Transit\bin\Windows\x86\Debug\Content\Bullet.xnb

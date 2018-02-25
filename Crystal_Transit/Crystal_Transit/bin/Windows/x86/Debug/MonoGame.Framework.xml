@@ -8681,13 +8681,6 @@
             <param name="instanceCount">The number of instances to render.</param>
             <remarks>Draw geometry with data from multiple bound vertex streams at different frequencies.</remarks>
         </member>
-        <member name="M:Microsoft.Xna.Framework.Graphics.GraphicsDevice.GetBackBufferData``1(``0[])">
-            <summary>
-            Gets the Pixel data of what is currently drawn on screen.
-            The format is whatever the current format of the backbuffer is.
-            </summary>
-            <typeparam name="T">A byte[] of size (ViewPort.Width * ViewPort.Height * 4)</typeparam>
-        </member>
         <member name="M:Microsoft.Xna.Framework.Graphics.GraphicsDevice.CreateDeviceResources">
             <summary>
             Create graphics device specific resources.
@@ -10042,16 +10035,6 @@
         <member name="P:Microsoft.Xna.Framework.Graphics.Texture2D.Bounds">
             <summary>
             Gets the dimensions of the texture
-            </summary>
-        </member>
-        <member name="P:Microsoft.Xna.Framework.Graphics.Texture2D.Width">
-            <summary>
-            Gets the width of the texture in pixels.
-            </summary>
-        </member>
-        <member name="P:Microsoft.Xna.Framework.Graphics.Texture2D.Height">
-            <summary>
-            Gets the height of the texture in pixels.
             </summary>
         </member>
         <member name="M:Microsoft.Xna.Framework.Graphics.RenderTarget2D.#ctor(Microsoft.Xna.Framework.Graphics.GraphicsDevice,System.Int32,System.Int32,System.Boolean,Microsoft.Xna.Framework.Graphics.SurfaceFormat,Microsoft.Xna.Framework.Graphics.DepthFormat,System.Int32,Microsoft.Xna.Framework.Graphics.RenderTargetUsage,Microsoft.Xna.Framework.Graphics.Texture2D.SurfaceType)">
