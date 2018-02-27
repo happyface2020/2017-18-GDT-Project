@@ -31,11 +31,11 @@ namespace Crystal_Transit
         Camera camera= new Camera();
         Hero hero = new Hero();
 
-        public const int WindowWidth = 960; //64 * 15
-        public const int WindowHeight = 640; // 64 * 10
-        public const int SquaresDepth = 2;
-        public const int SquareWidth = 15;
-        public const int SquaresHeight = 10;
+        public const int WindowWidth = 960; //on screen width of 15 tiles
+        public const int WindowHeight = 640; //on screen height of 10 tiles
+        public const int MapDepth = 2;
+        public const int MapWidth = 50;
+        public const int MapHeight = 25;
         public const int Scale = 48;
         public static int map = 0;
         #endregion
@@ -137,13 +137,13 @@ namespace Crystal_Transit
                     break;
                 case GameState.Playing:
                     spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointWrap, null, null, null, transformMatrix: camera.Transfrom);
-                    for (int z = 0; z < SquaresDepth; z++)
+                    for (int z = 0; z < MapDepth; z++)
                     {
                         int layer = z;
-                        for (int y = 0; y < 50; y++)
+                        for (int y = 0; y < MapHeight; y++)
                         {
                             int row = y;
-                            for (int x = 0; x < 100; x++)
+                            for (int x = 0; x < MapWidth; x++)
                             {
                                 int column = x;
 
