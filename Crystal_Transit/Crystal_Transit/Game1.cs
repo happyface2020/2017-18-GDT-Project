@@ -42,11 +42,17 @@ namespace Crystal_Transit
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
+            graphics.PreferredBackBufferWidth = WindowWidth; //set size of window
+            graphics.PreferredBackBufferHeight = WindowHeight;
+            graphics.ApplyChanges();
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
         }
         protected override void Initialize()
         {
+
+            spriteBatch = new SpriteBatch(GraphicsDevice);
+
             TileSet.TileSetTexture = Content.Load<Texture2D>("TileSet"); // loading tileset
             hero.texture = Content.Load<Texture2D>("Hero"); //change later  
             hero.position = new Vector2(100, 100);
@@ -62,11 +68,6 @@ namespace Crystal_Transit
         }
         protected override void LoadContent()
         {
-            spriteBatch = new SpriteBatch(GraphicsDevice);
-            graphics.PreferredBackBufferWidth = WindowWidth; //set size of window
-            graphics.PreferredBackBufferHeight = WindowHeight;
-            graphics.ApplyChanges();
-
             numProjectiles = new List<Projectile>();
 
             btnPlay = new ClassButton(Content.Load<Texture2D>("Start"), graphics.GraphicsDevice);
@@ -95,7 +96,7 @@ namespace Crystal_Transit
                     {
                         UnloadContent();
                         map = 1;
-                        hero.position.X = 64 * 74;
+                        hero.position.X = 32 * 50;
                         LoadContent();
                     }
 
@@ -137,6 +138,7 @@ namespace Crystal_Transit
                     break;
                 case GameState.Playing:
                     spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointWrap, null, null, null, transformMatrix: camera.Transfrom);
+
                     for (int z = 0; z < MapDepth; z++)
                     {
                         int layer = z;

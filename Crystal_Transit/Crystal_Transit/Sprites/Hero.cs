@@ -11,6 +11,7 @@ namespace Crystal_Transit
 {
     public class Hero : Sprite //class inheritance: https://goo.gl/jShBNA
     {
+        KeyboardState oldkey;
         public override void Update(GameTime gameTime) //overides the update to add movement
         {
             KeyboardState keyboardState = Keyboard.GetState();
@@ -49,14 +50,11 @@ namespace Crystal_Transit
             }
             CheckCollision(new_position);
             
-            if(keyboardState.IsKeyDown(Keys.E))
+            if(keyboardState.IsKeyDown(Keys.E) && oldkey.IsKeyUp(Keys.E))
             {
                 Game1.CurrentGameState= Game1.GameState.Inventory;
             }
-            if(mouse.LeftButton == ButtonState.Pressed)
-            {
-                
-            }
+            oldkey = keyboardState;
             
         }
 

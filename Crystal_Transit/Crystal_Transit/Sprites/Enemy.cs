@@ -11,6 +11,8 @@ namespace Crystal_Transit
     {
         public Sprite target;
         private Vector2 lastPositionOfTarget = Vector2.Zero;
+        public int movementSpeed = 150;
+        private Vector2 targetPosition;
 
         public Enemy(Sprite targetEntity)
         {
@@ -23,8 +25,18 @@ namespace Crystal_Transit
         {
             if (target.position != lastPositionOfTarget)
             {
-                targetMovedTo(target.position);
+                targetPosition = targetMovedTo(target.position);
+
             }
+
+            //float angle = Math.Atan2(targetPosition.Y - position.Y, targetPosition.X - position.X);
+            Vector2 movement = targetPosition - position;
+            if (movement != Vector2.Zero)
+            {
+                movement.Normalize();
+            }
+            position = movement * (float)movementSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+
             //position = target.position; follows the hero now
             lastPositionOfTarget = target.position;
         }
