@@ -9,7 +9,7 @@ namespace Crystal_Transit
 {
     public class Camera // https://goo.gl/bYojjD
     {
-        public Matrix Transfrom { get; private set; }
+        public static Matrix Transfrom { get; private set; }
 
         public void Follow(Hero target)
         {
