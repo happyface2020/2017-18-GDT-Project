@@ -22,7 +22,7 @@ namespace Crystal_Transit
         {
             this.position = position;
             this.texture = texture;
-            mousePosition = Vector2.Transform(new Vector2(mouse.X,mouse.Y), Matrix.Invert(Camera.Transfrom)); //new Vector2(mouse.X + position.X, mouse.Y+ position.Y);
+            mousePosition = new Vector2(mouse.X + position.X, mouse.Y+ position.Y);
         }
 
         public override void Update(GameTime gameTime) //virtual can be overridden by any inherted class
@@ -30,7 +30,7 @@ namespace Crystal_Transit
 
             if (mouse.LeftButton == ButtonState.Pressed && oldmouse.LeftButton == ButtonState.Released)
             {
-                movement = mousePosition - position; //checks for position on screen not in game Vector2 worldPosition = Vector2.Transform(mousePosition, Matrix.Invert(viewMatrix));
+                movement = mousePosition - position; //checks for position on screen not in game
                 if (movement != Vector2.Zero)
                 {
                     movement.Normalize();

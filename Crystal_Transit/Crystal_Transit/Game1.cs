@@ -137,7 +137,7 @@ namespace Crystal_Transit
                     btnPlay.Draw(spriteBatch);
                     break;
                 case GameState.Playing:
-                    spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointWrap, null, null, null, transformMatrix: Camera.Transfrom);
+                    spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointWrap, null, null, null, transformMatrix: camera.Transfrom);
 
                     for (int z = 0; z < MapDepth; z++)
                     {
