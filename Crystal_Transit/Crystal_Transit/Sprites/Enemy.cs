@@ -10,9 +10,9 @@ namespace Crystal_Transit
     class Enemy : Sprite
     {
         public Sprite target;
-        private Vector2 lastPositionOfTarget = Vector2.Zero;
-        public int movementSpeed = 150;
-        private Vector2 targetPosition;
+        public Vector2 lastPositionOfTarget = Vector2.Zero;
+        public int movementSpeed = 25;
+        public Vector2 targetPosition;
 
         public Enemy(Sprite targetEntity)
         {

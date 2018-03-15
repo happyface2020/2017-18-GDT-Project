@@ -57,7 +57,7 @@ namespace Crystal_Transit
             hero.texture = Content.Load<Texture2D>("Hero"); //change later  
             hero.position = new Vector2(100, 100);
 
-            archer = new Archer(hero, 10f, 25f, 2f, 30f);
+            archer = new Archer(hero, 20f, 50f, 2f, 30f);
             archer.texture = Content.Load<Texture2D>("Archer");
             archer.position = new Vector2(20, 20);
 

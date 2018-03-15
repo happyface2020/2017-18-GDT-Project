@@ -18,6 +18,8 @@ namespace Crystal_Transit
 
         public float sightDistance; // Maximum distance that this intelligence can see 
 
+        public Vector2 movement;
+
         // The following values are what "triggers" this intelligence to start moving or stop moving to
         // prevent small jumps in a change of position
         private float triggerMax
@@ -45,18 +47,36 @@ namespace Crystal_Transit
             //base(targetEntity: targetEntity); // I'm pretty sure that in C# argument names can be used when calling functions for better readabilty
         }
 
+        public override void Update(GameTime gameTime)
+        {
+            if (target.position != this.lastPositionOfTarget)
+            {
+                targetPosition = targetMovedTo(target.position);
+            }
+
+            //float angle = Math.Atan2(targetPosition.Y - position.Y, targetPosition.X - position.X);
+            movement = targetPosition - position;
+            if (movement != Vector2.Zero)
+            {
+                movement.Normalize();
+            }
+            position += movement * (float)movementSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+            lastPositionOfTarget = targetPosition;
+        }
+
         public override Vector2 targetMovedTo(Vector2 point)
         {
             Vector2 defaultPoint = base.targetMovedTo(point); // Get the default value from superclass
-            float distance = Vector2.Distance(value1: point, value2: position); // Find distance between player and entity
+            float distance = Vector2.Distance(point, position); // Find distance between player and entity
 
             if (distance >= triggerSight) { return defaultPoint; } // If player is out of sight return default postion
 
-            if ((distance > triggerMax) || (distance > maximumDistance && speed > 0))
+            if ((distance > triggerMax) || ((distance > maximumDistance) && (movementSpeed > 0)))
             { // Should approach the player
                 return getDestinationRelativeTo(point, distanceFromPoint: maximumDistance, travellingDirection: TravellingDirection.towards);
             }
-            else if ((distance < triggerMin) || (distance < minimumDistance && speed > 0))
+            else if ((distance < triggerMin) || ((distance < minimumDistance) && (movementSpeed > 0)))
             { // Should move away from the player
                 return getDestinationRelativeTo(point, distanceFromPoint: minimumDistance, travellingDirection: TravellingDirection.away);
             }
